@@ -1,0 +1,86 @@
+:root{
+  --brand:#d62828;
+  --brand-600:#b71f1f;
+  --ink:#1f2937;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --card:#fafafa;
+  --yellow:#ffd166;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+a{color:inherit;text-decoration:none}
+
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* Header */
+.header{background:var(--brand);color:#fff}
+.header__inner{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+.logo{font-weight:800;letter-spacing:.3px}
+.nav a{margin-left:16px;opacity:.95}
+.nav a:hover{opacity:1}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,#cf2626 0%, #d62828 100%);color:#fff;position:relative;overflow:hidden}
+.hero__inner{padding:40px 16px 160px;max-width:1100px;margin:0 auto;text-align:center}
+.hero__badge{opacity:.9;margin-bottom:8px}
+.hero h1{font-size:42px;line-height:1.05;margin:12px 0 16px}
+.btn{display:inline-block;padding:10px 18px;border-radius:999px;font-weight:600;border:1px solid transparent}
+.btn-yellow{background:var(--yellow);color:#000}
+.btn:hover{filter:brightness(.95)}
+.hero__pizza{position:absolute;left:50%;transform:translateX(-50%);bottom:-140px;width:680px;max-width:90%;pointer-events:none}
+
+/* Category bar */
+.categorybar{background:#fff;border-bottom:1px solid var(--line)}
+.categorybar__inner{display:flex;gap:12px;overflow:auto;padding:12px 0}
+.catpill{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);background:#fff;border-radius:999px;white-space:nowrap}
+.catpill__icon{font-size:18px}
+
+/* Promos */
+.promo{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;margin:28px auto}
+.promo__big{background:#ffe3e3 url('https://images.unsplash.com/photo-1601924582971-b4493c8f87a5?q=80&w=1400&auto=format&fit=crop') center/cover;border-radius:16px;min-height:320px;padding:24px;color:#1f1f1f;display:flex;flex-direction:column;justify-content:flex-end}
+.promo__card{background:#fff;border-radius:16px;min-height:152px;padding:20px;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
+.promo__card.dark{background:#1f2937;color:#fff;border-color:#1f2937}
+.btn-white{background:#fff;color:#111}
+.btn-outline{background:transparent;border-color:#fff;color:#fff}
+.btn-sm{padding:8px 14px;border-radius:12px}
+
+/* Titles */
+.title{margin:36px 0 14px;text-align:center}
+.subtitle{color:var(--brand);font-weight:600;margin:0 0 6px}
+
+/* Tabs */
+.tabs{display:flex;gap:10px;justify-content:center;margin:8px auto 18px}
+.tab{display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.tab.is-active{background:#000;color:#fff;border-color:#000}
+.tab__icon{font-size:18px}
+
+/* Products */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:48px}
+.product{border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}
+.product__img{width:100%;height:220px;object-fit:cover}
+.product__body{padding:14px}
+.product__title{margin:6px 0 10px;font-size:16px}
+.product__meta{display:flex;align-items:center;gap:10px;color:var(--muted)}
+.product__meta .product__price{margin-left:auto;color:#111}
+
+/* Footer */
+.footer{background:#0f172a;color:#cbd5e1;padding:36px 0 24px;margin-top:16px}
+.footer__grid{display:grid;grid-template-columns:2fr 1fr 2fr;gap:24px}
+.footer__logo{font-weight:900;color:#fff;font-size:22px;line-height:1.1;margin-bottom:8px}
+.footer__insta{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.footer__insta img{width:100%;height:80px;object-fit:cover;border-radius:8px}
+.footer__copy{border-top:1px solid #1e293b;margin-top:16px;padding-top:16px;text-align:center}
+
+/* Responsive */
+@media (max-width: 980px){
+  .promo{grid-template-columns:1fr}
+  .footer__grid{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 560px){
+  .grid{grid-template-columns:1fr}
+  .hero h1{font-size:32px}
+}

@@ -1,0 +1,46 @@
+:root{
+  --brand:#d62828;
+  --yellow:#FDC913;
+}
+
+/* Splash ekranı */
+.splash-hero{
+  position:relative;
+  min-height:100vh;
+  width:100%;
+  overflow:hidden;
+  background:var(--brand); /* fallback */
+}
+
+.splash-hero__bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+
+.splash-hero__center{
+  position:absolute;
+  left:50%;
+  top:42%;
+  transform:translate(-50%,-50%);
+  z-index:2;
+}
+
+.splash-btn{
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:999px;
+  font-weight:700;
+  background:var(--yellow);
+  color:#000;
+  border:0;
+  text-decoration:none;
+  box-shadow:0 4px 16px rgba(0,0,0,.15);
+}
+
+.splash-btn:hover{
+  filter:brightness(.95);
+}

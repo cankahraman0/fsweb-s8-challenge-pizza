@@ -1,18 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import workintech from '/workintech.svg'
-import './App.css'
+import { Routes, Route } from "react-router-dom";
+import Splash from "./components/Splash.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <p className="read-the-docs">
-        Workintech - Sprint 8 "Pizza Project"
-      </p>
-    </>
-  )
+function Devam() {
+  return <div style={{ padding:24 }}>DEVAM SAYFASI</div>;
 }
 
-export default App
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Splash />} />
+      <Route path="/devam" element={<Devam />} />
+    </Routes>
+  );
+}
