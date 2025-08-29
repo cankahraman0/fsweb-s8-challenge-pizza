@@ -21,26 +21,31 @@
   object-position:center;
 }
 
+/* konumlandırma aynı kalsın */
 .splash-hero__center{
   position:absolute;
-  left:50%;
-  top:42%;
+  left:50%; top:42%;
   transform:translate(-50%,-50%);
   z-index:2;
 }
 
+/* BUTON SABİT ÖLÇÜLER */
 .splash-btn{
   display:inline-block;
-  padding:12px 22px;
-  border-radius:999px;
-  font-weight:700;
-  background:var(--yellow);
+  min-width: 160px;     /* sabit genişlik sınırı */
+  height: 44px;         /* sabit yükseklik */
+  line-height: 44px;    /* metni dikey ortala */
+  padding: 0 22px;      /* yatay padding */
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 18px;      /* sabit yazı boyutu */
+  background: var(--yellow);
   color:#000;
-  border:0;
-  text-decoration:none;
-  box-shadow:0 4px 16px rgba(0,0,0,.15);
+  text-decoration: none;
+  border: 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  white-space: nowrap;  /* metin taşmasın */
 }
-
 .splash-btn:hover{
   filter:brightness(.95);
 }
