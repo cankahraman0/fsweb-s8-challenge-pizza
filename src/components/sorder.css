@@ -13,7 +13,21 @@
 .order-head .brand{ font-weight:900; }
 
 .order-main{ max-width:1000px; margin:0 auto; }
-.order-hero{ height:120px; background:transparent url("../../images/iteration-2-images/pictures/form-banner.png") center/contain no-repeat; }
+
+/* HERO alanı: ürün varsa resim, yoksa banner */
+.order-hero{ height:180px; display:flex; align-items:center; justify-content:center; padding:8px; }
+.order-hero--banner{
+  background:transparent url("../../images/iteration-2-images/pictures/form-banner.png") center/contain no-repeat;
+}
+.order-hero.has-img{ background:transparent; }
+.order-hero__img{
+  max-height:160px; 
+  width:auto;            /* genişliği orana göre bırak */
+  height:auto;
+  object-fit:contain;    /* kırpılma yok */
+  display:block;
+}
+
 .order-content{ max-width:640px; margin:0 auto; padding:0 16px 64px; }
 
 .crumbs{ color:#999; font-size:12px; margin:8px 0 12px; display:flex; gap:6px; align-items:center }

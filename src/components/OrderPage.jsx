@@ -13,8 +13,8 @@ const TOPPINGS = [
 export default function OrderPage() {
   const nav = useNavigate();
   const { state: product } = useLocation(); // ProductCard -> state
-  // Ürün olmadan gelinirse geri gönder
   const basePrice = product?.price ?? 85.5;
+  const heroSrc = product?.img ?? null;
 
   const [name, setName] = useState("");
   const [size, setSize] = useState("");
@@ -45,9 +45,8 @@ export default function OrderPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!isValid) return; // HTML disabled'a ek olarak JS koruması
+    if (!isValid) return;
     try {
-      // API: https://reqres.in/api/pizza
       const payload = {
         isim: name.trim(),
         urun: product?.title ?? "Position Absolute Acı Pizza",
@@ -79,14 +78,27 @@ export default function OrderPage() {
       </header>
 
       <main className="order-main">
-        <div className="order-hero" />
+        {/* HERO: ürün görseli varsa onu, yoksa default banner'ı göster */}
+        <div className={`order-hero ${heroSrc ? "has-img" : "order-hero--banner"}`}>
+          {heroSrc && (
+            <img
+              src={heroSrc}
+              alt={product?.title ?? "Ürün"}
+              className="order-hero__img"
+            />
+          )}
+        </div>
+
         <div className="order-content">
           <nav className="crumbs">
             <span>Anasayfa</span> <span>›</span> <span>Seçenekler</span>{" "}
             <span>›</span> <span className="accent">Sipariş Oluştur</span>
           </nav>
 
-          <h2 className="order-title">{product?.title ?? "Position Absolute Acı Pizza"}</h2>
+          <h2 className="order-title">
+            {product?.title ?? "Position Absolute Acı Pizza"}
+          </h2>
+
           <div className="order-meta">
             <div className="price">{basePrice.toFixed(2)}₺</div>
             <div className="rating">4.9</div>
