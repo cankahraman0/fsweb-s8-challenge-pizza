@@ -8,7 +8,10 @@ export default function Splash() {
       <img className="splash-hero__bg" src={heroImage} alt="Home" />
       <div className="splash-hero__center">
         {/* önce /devam’dı → /anasayfa yaptık */}
-        <Link to="/anasayfa" className="splash-btn">AÇIKTIM</Link>
+        <Link to="/anasayfa" className="splash-btn">
+  ARE YOU HUNGRY ?
+  <i className="fas fa-smile"></i>
+</Link>
       </div>
     </section>
   );

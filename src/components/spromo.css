@@ -1,7 +1,161 @@
-.promo{ max-width:1100px; margin:24px auto; padding:0 16px; display:grid; gap:16px; grid-template-columns:2fr 1fr 1fr }
-.promo__big{ background:#ffe3e3; border-radius:16px; min-height:220px; padding:20px; display:flex; align-items:flex-end; justify-content:space-between }
-.promo__card{ background:#fff; border:1px solid #eee; border-radius:16px; min-height:220px; padding:20px; display:flex; flex-direction:column; justify-content:space-between }
-.promo__card.dark{ background:#1f2937; color:#fff; border-color:#1f2937 }
-.promo__btn{ border:0; background:#111; color:#fff; padding:8px 14px; border-radius:12px; cursor:pointer }
-.promo__btn.white{ background:#fff; color:#111 }
-@media (max-width:900px){ .promo{ grid-template-columns:1fr } }
+/* === Promo Grid === */
+.promo {
+  max-width: 1100px;
+  margin: 24px auto 8px;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1.75fr 1fr; /* soldaki geniş */
+  grid-template-rows: 200px 200px;   /* sağda iki küçük kart */
+  gap: 16px;
+}
+
+/* Ortak kart */
+.p-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  isolation: isolate;
+}
+
+.p-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Başlık ve altbaşlık tipografi */
+.p-title-lg {
+  font-size: clamp(28px, 3.2vw, 44px); /* ekran boyutuna göre ölçeklenir */
+  line-height: 1.05;
+  margin: 0 0 10px;
+  font-weight: 800;
+  letter-spacing: .3px;
+  color: #fff;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 0 1px 0 rgba(0,0,0,.08);
+}
+
+.p-sub {
+  font-size: 13px;
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: .2px;
+  opacity: .95;
+  color: #fff;
+}
+
+.p-title-md {
+  font-size: clamp(16px, 1.7vw, 20px);
+  line-height: 1.2;
+  margin: 0 0 8px;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+/* Konumlandırma */
+.p-left__text {
+  max-width: 280px;
+  margin-top: 2px;
+}
+
+.p-dark__text {
+  color: #fff;
+  margin-top: 2px;
+}
+
+.p-beige__text {
+  color: #111;
+  margin-top: 2px;
+}
+
+/* Küçük kırmızı pill buton */
+.p-chip {
+  align-self: flex-start;
+  background: #e11d48;
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(225, 29, 72, 0.25);
+}
+
+/* Buton boşlukları */
+.p-left .p-chip { margin-top: 12px; }
+.p-dark .p-chip,
+.p-beige .p-chip { margin-top: auto; }
+
+/* --- SOL BÜYÜK KART --- */
+.p-left {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3; /* iki satırı kaplasın */
+  background: var(--img) right center / cover no-repeat;
+  color: #fff;
+}
+
+.p-left::before,
+.p-left::after {
+  content: none !important;
+}
+
+/* --- SAĞ-ÜST: KOYU KART --- */
+.p-dark {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  background: #182334;
+  color: #fff;
+}
+
+.p-dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--img);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: right 10px center;
+  opacity: .95;
+  z-index: 1;
+}
+
+/* --- SAĞ-ALT: BEJ KART --- */
+.p-beige {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  background: #fff5e8;
+  color: #111;
+}
+
+.p-beige::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--img);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: right 6px center;
+  opacity: .95;
+  z-index: 1;
+}
+
+/* Responsive: mobilde alt alta */
+@media (max-width: 900px) {
+  .promo {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .p-left {
+    grid-row: auto;
+  }
+
+  .p-card {
+    height: auto;
+  }
+}
